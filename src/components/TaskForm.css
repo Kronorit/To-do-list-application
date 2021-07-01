@@ -1,0 +1,19 @@
+.create-task-form {
+    width: 100%;
+    text-align: center;
+    margin-top: 1em;
+}
+
+.create-task-form #create-task-title {
+    width: 40%;
+    margin: 0 0.2em;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5em 0.7em;
+}
+
+.create-task-form #create-task-button {
+    border: none;
+    border-radius: 5px;
+    padding: 0.5em 0.7em;
+}

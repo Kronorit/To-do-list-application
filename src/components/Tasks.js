@@ -1,18 +1,27 @@
 import React from 'react';
 
-//Components
+import TasksUndone from './TasksUndone.js';
+import TasksDone from './TasksDone.js';
 
-import Task from './Task.js'
+class Tasks extends React.Component{
 
-class Tasks extends React.Component {
-
-  render() {
-    return(
-      <div className="tasks">
-        <Task/>
-      </div>
-    );
-  }
+    render() {
+        return (
+            <div className="tasks">
+                <TasksUndone 
+                    tasks={this.props.tasks}
+                    toggleCompleted={this.props.toggleCompleted} 
+                    deleteTask={this.props.deleteTask}
+                />
+                <hr/>
+                <TasksDone 
+                    tasks={this.props.tasks}
+                    toggleCompleted={this.props.toggleCompleted} 
+                    deleteTask={this.props.deleteTask}
+                />
+            </div>
+        );
+    }
 }
 
 export default Tasks;

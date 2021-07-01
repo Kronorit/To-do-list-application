@@ -1,30 +1,29 @@
 import React from 'react';
+import './Task.css';
 
-class Task extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {tasks:[]};
-    }
+class Task extends React.Component{
 
-    async componentDidMount() {
-        const res = await fetch('https://jsonplaceholder.typicode.com/todos');
-        const data = await res.json();
-        this.setState({tasks: data});
-    }
-    
-    render() {
+    render(){
+        const isCompleted = this.props.completed;
         return(
-            this.state.tasks.map(tasks => {
-                return (
-                    <div className="task" key={tasks.id}>
-                        <p className="task-title">{tasks.title}</p>
-                        <input type="checkbox"/>
-                        <button className="deleteTaskButton">X</button>
-                    </div>    
-                );
-            })
-        );    
-    }      
+            <div className="task">
+                <h2 className={"task-title " + (isCompleted  ? "task-done" : "task-undone")}>{this.props.title}</h2>
+                <input 
+                    type="checkbox" 
+                    className="toggle-completed" 
+                    id={"task" + this.props.id} 
+                    onChange={() => {this.props.toggleCompleted(this.props.id);}}
+                    checked= {isCompleted}
+                />
+                <label className="input-label" htmlFor={"task" + this.props.id}></label>
+                <button 
+                    className="task-delete-button" 
+                    onClick={() => {this.props.deleteTask(this.props.id)}}>
+                        X
+                </button>
+            </div>
+        );
+    }
 }
 
 export default Task;
