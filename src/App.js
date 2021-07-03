@@ -5,9 +5,12 @@ import './App.css';
 
 // Components
 
-import SearchBar from './components/SearchBar.js';
+import BarNav from './components/BarNav.js';
 import TaskForm from './components/TaskForm.js';
 import Tasks from './components/Tasks.js';
+
+// Logic
+
 import assignId from './logic/assignId';
 
 class App extends React.Component {
@@ -76,16 +79,18 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="content">
-        <SearchBar/>
-        <TaskForm addTask={this.addTask}/>
-        <Tasks 
-          tasks={this.state.tasks}
-          tasksDone={this.state.tasksDone} 
-          tasksUndone={this.state.tasksUndone} 
-          toggleCompleted={this.toggleCompleted} 
-          deleteTask={this.deleteTask}
-        />
+      <div>
+        <BarNav/>
+        <div className="content">
+          <TaskForm addTask={this.addTask}/>
+          <Tasks 
+            tasks={this.state.tasks}
+            tasksDone={this.state.tasksDone} 
+            tasksUndone={this.state.tasksUndone} 
+            toggleCompleted={this.toggleCompleted} 
+            deleteTask={this.deleteTask}
+          />
+        </div>
       </div>
 
     );
