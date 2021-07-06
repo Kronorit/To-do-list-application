@@ -15,7 +15,7 @@ class TasksDone extends React.Component {
                             completed={task.completed} 
                             id={task.id} 
                             toggleCompleted={this.props.toggleCompleted} 
-                            deleteTask={this.props.deleteTask} 
+                            deleteTask={this.props.deleteTask}
                             key={task.id}
                         />
                     );

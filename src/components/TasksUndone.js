@@ -16,6 +16,7 @@ class TasksUndone extends React.Component {
                             id={task.id} 
                             toggleCompleted={this.props.toggleCompleted} 
                             deleteTask={this.props.deleteTask} 
+                            editTask={this.props.editTask}
                             key={task.id}
                         />
                     );

@@ -7,13 +7,31 @@
 .create-task-form #create-task-title {
     width: 40%;
     margin: 0 0.2em;
-    border: none;
+    margin-top: 2em;
+    border: 1.86px solid #555;
     border-radius: 5px;
+    background: #2a2a2a;
+    color: #fff;
     padding: 0.5em 0.7em;
+    transition: border .2s ease;
+}
+
+.create-task-form #create-task-title::placeholder {
+    font-size: 15px;
+    color: #aaa  
+}
+
+.create-task-form #create-task-title:focus {
+    border: 1.9px solid #05f;
+    outline: none;
 }
 
 .create-task-form #create-task-button {
+    font-size: 15px;
     border: none;
     border-radius: 5px;
+    background: #2a2a2a;
+    color: #aaa;
     padding: 0.5em 0.7em;
+    cursor: pointer;
 }

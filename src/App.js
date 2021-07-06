@@ -18,7 +18,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      tasks: []
+      tasks: [],
+      title: 'Lorem Ipsum Dolor'
     };
 
     // Binded functions
@@ -26,6 +27,7 @@ class App extends React.Component {
     this.toggleCompleted = this.toggleCompleted.bind(this);
     this.deleteTask = this.deleteTask.bind(this);
     this.addTask = this.addTask.bind(this);
+    this.editTask = this.editTask.bind(this);
   }
 
   // Fetch data from the server on component mount.
@@ -77,18 +79,33 @@ class App extends React.Component {
     }
   }
 
+  // Edit a task.
+
+  editTask(id, title) {
+    const tasks = this.state.tasks;
+    for (let i in tasks){
+      if (parseInt(tasks[i].id) === parseInt(id)) {
+        tasks[i].title = title;
+        break;
+      } 
+    }
+    this.setState({tasks: tasks});
+  }
+
   render() {
     return (
       <div>
         <BarNav/>
+        <TaskForm addTask={this.addTask}/>
         <div className="content">
-          <TaskForm addTask={this.addTask}/>
+          <h2 className="task-list-title">{this.state.title}</h2>
           <Tasks 
             tasks={this.state.tasks}
             tasksDone={this.state.tasksDone} 
             tasksUndone={this.state.tasksUndone} 
             toggleCompleted={this.toggleCompleted} 
             deleteTask={this.deleteTask}
+            editTask={this.editTask}
           />
         </div>
       </div>

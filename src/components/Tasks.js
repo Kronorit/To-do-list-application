@@ -12,12 +12,14 @@ class Tasks extends React.Component{
                     tasks={this.props.tasks}
                     toggleCompleted={this.props.toggleCompleted} 
                     deleteTask={this.props.deleteTask}
+                    editTask={this.props.editTask}
                 />
                 <hr/>
                 <TasksDone 
                     tasks={this.props.tasks}
                     toggleCompleted={this.props.toggleCompleted} 
                     deleteTask={this.props.deleteTask}
+                    editTask={this.props.editTask}
                 />
             </div>
         );
